@@ -10,7 +10,7 @@ SILVER varchar(255),
 BRONZE varchar(255)
 );
 
-delete from events;
+
 
 INSERT INTO events VALUES (1,'100m',2016, 'Amthhew Mcgarray','donald','barbara');
 INSERT INTO events VALUES (2,'200m',2016, 'Nichole','Alvaro Eaton','janet Smith');
@@ -24,7 +24,10 @@ INSERT INTO events VALUES (9,'500m',2016, 'Thomas','Dennis','paula');
 INSERT INTO events VALUES (10,'100m',2016, 'Charles','Dennis','Susana');
 INSERT INTO events VALUES (11,'200m',2016, 'jessica','Donald','Stefeney');
 INSERT INTO events VALUES (12,'500m',2016,'Thomas','Steven','Catherine');
-DROP TABLE events;
+
+
+-- Write a Query to find number of gold medals per swimmer for only swimmer who won gold medal.
+
 
 
 SELECT * FROM events;
