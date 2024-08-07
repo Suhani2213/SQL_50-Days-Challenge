@@ -25,8 +25,8 @@ SELECT * FROM hospital;
 -- Method 1
 WITh CTE as (
 SELECT emp_id,
-	max(CASE WHEN action = "in" Then time END) AS In_time, 
-	max(CASE WHEN action = "out" Then time END) AS Out_time
+       max(CASE WHEN action = "in" Then time END) AS In_time, 
+       max(CASE WHEN action = "out" Then time END) AS Out_time
 FROM hospital
 Group BY emp_id
 )
@@ -43,7 +43,7 @@ SELECT emp_id,
 FROM hospital
 Group BY emp_id
 HAVING max(CASE WHEN action = "in" Then time END) > max(CASE WHEN action = "out" Then time END)
-	   or max(CASE WHEN action = "out" Then time END) is null;
+       or max(CASE WHEN action = "out" Then time END) is null;
        
        
        
