@@ -21,7 +21,7 @@ VALUES(101, 'sohan', '3000', '11'),
 
 
 
--- Write a SQL query to return all employees whose salary is same insame department
+-- Write a SQL query to return all employees whose salary is same in same department
 
 SELECT * FROM emp_salary;
 
