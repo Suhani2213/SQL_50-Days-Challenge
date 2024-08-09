@@ -60,6 +60,19 @@ ORDER BY emp_id;
 
 
 -- METHOD 3
+WITH cte AS (
+  SELECT *,
+    COUNT(*) OVER (PARTITION BY dept_id, salary) num_same_sal
+  FROM emp_salary
+)
+
+SELECT *
+FROM cte
+WHERE num_same_sal > 1;
+
+
+
+-- METHOD 4
 -- Using RIGHT JOIN
 WITH same_pay as(
 SELECT dept_id, salary
