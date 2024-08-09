@@ -1,5 +1,4 @@
 CREATE DATABASE company;
-DROP DATABASE company;
 
 CREATE TABLE emp_salary
 (
@@ -20,7 +19,10 @@ VALUES(101, 'sohan', '3000', '11'),
 (109, 'mahesh', '7000', '12'),
 (108, 'kamal', '8000', '11');
 
+
+
 -- Write a SQL query to return all employees whose salary is same insame department
+
 SELECT * FROM emp_salary;
 
 
