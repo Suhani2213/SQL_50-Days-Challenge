@@ -55,7 +55,7 @@ INSERT INTO company_pages VALUES(9,'Ace The Data Science',4479);
 
 /*  The LinkedIn Creator Team wants to find power creators who use their personal profiles like company or influencers pages. One way to identify them is if their personal profile has more followers than the company they work for.
 
- Write a query that returns the IDa, details of these power creators. We should keep in mind that a person might work at more than one company.*/ 
+ Write a query that returns the IDs, details of these power creators. We should keep in mind that a person might work at more than one company.*/ 
 
 
 
@@ -72,13 +72,20 @@ JOIN company_pages cp on ec.company_id = cp.company_id;
 
 
 with main as (
-SELECT pp.profile_id, pp.name, pp.followers as creator_followers, cp.company_id, cp.name as company_name,
-	   MAX(cp.followers) OVER(PARTITION BY profile_id) as max_company_followers
+SELECT pp.profile_id, 
+	pp.name, 
+	pp.followers as creator_followers,
+	cp.company_id, 
+	cp.name as company_name,
+	MAX(cp.followers) OVER(PARTITION BY profile_id) as max_company_followers
 FROM personal_profiles pp
 JOIN employee_company ec on pp.profile_id = ec.personal_profile_id
 JOIN company_pages cp on ec.company_id = cp.company_id
 )
-SELECT profile_id as power_creator_id, name, creator_followers, max_company_followers
+SELECT profile_id as power_creator_id, 
+       name, 
+       creator_followers, 
+       max_company_followers
 FROM main
 WHERE creator_followers > max_company_followers
 GROUP BY profile_id, name, creator_followers, max_company_followers;
