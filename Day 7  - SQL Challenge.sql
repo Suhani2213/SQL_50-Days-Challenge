@@ -1,6 +1,6 @@
 /* There are 2 tables, first table has 5 records and second table has 10 records
 You can assume any value in each of  the table. Hpw many maximum and minimum record possible in each case of
-inner join, left join, right joinand full outer join*/
+inner join, left join, right join and full outer join*/
 
 
 CREATE DATABASE trick;
