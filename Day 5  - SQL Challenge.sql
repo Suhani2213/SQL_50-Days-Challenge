@@ -53,7 +53,9 @@ INSERT INTO company_pages VALUES(9,'Ace The Data Science',4479);
 
 
 
-/*  The LinkedIn Creator Team wants to find power creators who use their personal profiles like company or influencers pages. One way to identify them is if their personal profile has more followers than the company they work for.
+/*  The LinkedIn Creator Team wants to find power creators who use their personal profiles like company or influencers pages. 
+
+One way to identify them is if their personal profile has more followers than the company they work for.
 
  Write a query that returns the IDs, details of these power creators. We should keep in mind that a person might work at more than one company.*/ 
 
