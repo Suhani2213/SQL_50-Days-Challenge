@@ -130,7 +130,6 @@ INSERT INTO global_song_rank (day, song_id, `rank`) VALUES
 
 
 
-
 WITH main as (
 SELECT s.artist_id, 
        COUNT(s.song_id) No_of_appearences,
