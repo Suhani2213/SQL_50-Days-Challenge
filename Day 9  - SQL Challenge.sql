@@ -39,6 +39,7 @@ artist_id INT,
 name VARCHAR(100)
 );
 
+
 INSERT INTO songs 
 (song_id, artist_id, name) 
 VALUES
@@ -130,7 +131,6 @@ INSERT INTO global_song_rank (day, song_id, `rank`) VALUES
 
 
 
-
 WITH main as (
 SELECT s.artist_id, 
        COUNT(s.song_id) No_of_appearences,
@@ -146,3 +146,5 @@ FROM main m
 JOIN artists a ON a.artist_id = m.artist_id
 WHERE m.global_rank <= 5
 ORDER By global_rank, artist_name;
+
+
