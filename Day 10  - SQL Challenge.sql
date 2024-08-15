@@ -15,6 +15,10 @@ insert into employee values
 ('Siva',1,30000),('Ravi',2,40000),('Prasad',1,50000),('Sai',2,20000);
 
 
+-- Write a query to print the highest and lowest salaried employee in each department.
+
+
+
 SELECT * FROM employee;
 
 
