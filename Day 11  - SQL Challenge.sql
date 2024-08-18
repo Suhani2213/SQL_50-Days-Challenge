@@ -60,4 +60,4 @@ FROM call_end_logs
 ) a
 GROUP BY phone_number, rn;
 
--- Note - aggregate funtion like max() and min() helps you in avoiding null cellds.
+-- Note - aggregate funtion like max() and min() helps you in avoiding null cells.
