@@ -29,7 +29,7 @@ SELECT * FROM call_start_logs;
 
 SELECT * FROM call_end_logs;
 
--- Note - with the help of row_number created a primary key to join both tables.
+-- Note - with the help of row_number created a key to join both tables.
 
 
 
@@ -45,6 +45,8 @@ SELECT a.phone_number, start_time, end_time, TIMESTAMPDIFF(MINUTE ,start_time, e
 FROM start_table as a
 JOIN end_table as b
 ON a.phone_number = b.phone_number AND a.rn = b.rn;
+
+-- Note - with the help of row_number, created a primary key to join both tables.
 
 
 -- METHOD 1 - using UNION
