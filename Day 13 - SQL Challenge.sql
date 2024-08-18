@@ -1,59 +1,44 @@
-CREATE DATABASE IF NOT EXISTS products;
+CREATE DATABASE criteria_qualified;
+USE criteria_qualified;
 
-USE products;
-
-CREATE TABLE IF NOT EXISTS Product (
-    ProductID INT PRIMARY KEY,
-    ProductName VARCHAR(100),
-    OriginalPrice DECIMAL(10, 2),
-    DiscountRate DECIMAL(5, 2)  -- Discount rate as a percentage, e.g., 10% discount is represented as 10.
+create table Ameriprise_LLC
+(
+teamID varchar(2),
+memberID varchar(10),
+Criteria1 varchar(1),
+Criteria2 varchar(1)
 );
+insert into Ameriprise_LLC values 
+('T1','T1_mbr1','Y','Y'),
+('T1','T1_mbr2','Y','Y'),
+('T1','T1_mbr3','Y','Y'),
+('T1','T1_mbr4','Y','Y'),
+('T1','T1_mbr5','Y','N'),
+('T2','T2_mbr1','Y','Y'),
+('T2','T2_mbr2','Y','N'),
+('T2','T2_mbr3','N','Y'),
+('T2','T2_mbr4','N','N'),
+('T2','T2_mbr5','N','N'),
+('T3','T3_mbr1','Y','Y'),
+('T3','T3_mbr2','Y','Y'),
+('T3','T3_mbr3','N','Y'),
+('T3','T3_mbr4','N','Y'),
+('T3','T3_mbr5','Y','N');
 
-INSERT INTO Product(ProductID, ProductName, OriginalPrice, DiscountRate) VALUES
-(1, 'Laptop', 1200.00, 15),
-(2, 'Smartphone', 700.00, 10),
-(3, 'Headphones', 150.00, 5),
-(4, 'E-Reader', 200.00, 20);
+-- If both Criteria1 and Criteri2 are 'Y' for at least 2 team members within the same team, then entire team is eligible for qualifing else team is not eligible for qualification.
+-- Show the members who actually qualified and did not qualify the program.
 
-CREATE TABLE IF NOT EXISTS Sales (
-    SaleID INT PRIMARY KEY,
-    ProductID INT,
-    QuantitySold INT,
-    SaleDate DATE
-);
-
-
-INSERT INTO Sales (SaleID, ProductID, QuantitySold, SaleDate) VALUES
-(1, 1, 2, '2023-03-11'),
-(2, 2, 3, '2023-03-12'),
-(3, 3, 5, '2023-03-13'),
-(4, 1, 1, '2023-03-14'),
-(5, 4, 4, '2023-03-15'),
-(6, 2, 2, '2023-03-16'),
-(7, 3, 3, '2023-03-17'),
-(8, 4, 2, '2023-03-18');
-
-INSERT INTO Sales (SaleID, ProductID, QuantitySold, SaleDate) VALUES
-(9, 1, 1, '2023-03-01'),
-(10, 2, 2, '2023-03-02'),
-(11, 3, 1, '2023-03-03'),
-(12, 4, 1, '2023-03-04'),
-(13, 1, 2, '2023-03-05'),
-(14, 2, 1, '2023-03-06'),
-(15, 3, 3, '2023-03-07'),
-(16, 4, 2, '2023-03-08'),
-(17, 2, 1, '2023-03-09');
+SELECT * FROM Ameriprise_LLC;
 
 
--- Calculate the percentage increase in sales volume during the sale compared to a similar period before the sale.
-
-SELECT (Quantity_Sold_During_Sale - Quantity_Sold_Before_Sale)/Quantity_Sold_Before_Sale*100 AS Percentage_Increase
-FROM(
-    SELECT
-		SUM(CASE WHEN s.SaleDate BETWEEN '2023-03-11' AND '2023-03-18' THEN s.QuantitySold ELSE 0
-        END) AS Quantity_Sold_During_Sale,
-        SUM(CASE WHEN s.SaleDate BETWEEN '2023-03-01' AND '2023-03-09' THEN s.QuantitySold ELSE 0 
-END) AS Quantity_Sold_Before_Sale
-    FROM Sales s)
-AS Qty;
-
+WITH cte as (
+SELECT teamID, COUNT(teamID) qualifying_team
+FROM Ameriprise_LLC
+WHERE Criteria1 = 'Y' AND Criteria2 = 'Y' 
+GROUP BY teamID
+HAVING COUNT(teamID) >= 2
+)
+SELECT a.*,
+CASE WHEN a.Criteria1 = 'Y' AND a.Criteria2 = 'Y' AND qualifying_team >= 2 THEN "YES! Qualified" ELSE "Better Luck Next Time" END Result
+FROM Ameriprise_LLC a
+LEFT JOIN cte c ON c.teamID = a.teamID;
