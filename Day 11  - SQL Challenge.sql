@@ -49,7 +49,7 @@ ON a.phone_number = b.phone_number AND a.rn = b.rn;
 -- Note - with the help of row_number, created a primary key to join both tables.
 
 
--- METHOD 1 - using UNION
+-- METHOD  - using UNION
 SELECT phone_number, MIN(call_time) as start_time, MAX(call_time) as end_time , TIMESTAMPDIFF(MINUTE, MIN(call_time), MAX(call_time))  "call duration"
 FROM (
 SELECT phone_number, start_time as call_time, row_number() OVER (partition by phone_number ORDER BY start_time) rn
@@ -60,3 +60,4 @@ FROM call_end_logs
 ) a
 GROUP BY phone_number, rn;
 
+-- Note - aggregate funtion like max() and min() helps you in avoiding null cellds.
