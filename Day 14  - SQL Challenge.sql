@@ -36,7 +36,7 @@ LEFT JOIN child c
 ON adult_age_rnk = child_age_rnk;
 
 
--- note -- Used row_number to join and to make of pair of adult and child table
+-- note -- created/ Used row_number to join and to make of pair of adult and child table
 
 
 /* You have a table with columns Name and Type.
