@@ -11,14 +11,15 @@ INSERT INTO family VALUES ('A1','Adult',54)
 ,('A2','Adult',53),('A3','Adult',52),('A4','Adult',58),('A5','Adult',54),('C1','Child',20),('C2','Child',19),('C3','Child',22),('C4','Child',15);
 
 
+SELECT * FROM family;
+
+
+
 /* You have a table with columns Name and Type.
 The Type column has ‘Adult’ or ‘Child’. 
 Write a SQL query to generate a table showing pairs of adults who went for a ride, 
 with the condition a child can only go to the ride with an adult but cannot go to a ride alone.
 */
-
-
-SELECT * FROM family;
 
 
 WITH adult as(
