@@ -28,7 +28,7 @@ select * from company_revenue;
 -- METHOD 1
 WITH main as (
 SELECT *,
-	   LAG(revenue,1,0) OVER(PARTITION BY company order by year) as prev_rev, 
+       LAG(revenue,1,0) OVER(PARTITION BY company order by year) as prev_rev, 
        revenue - LAG(revenue,1,0) OVER(PARTITION BY company order by year)  yoy_growth,
 COUNT(year) OVER (PARTITION BY company) Total_year
 FROM company_revenue
