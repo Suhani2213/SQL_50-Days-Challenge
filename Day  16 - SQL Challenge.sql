@@ -48,7 +48,9 @@ values
 
 Write a query to print the name of a child and his parents in individual colummns  respectively on order of name of the child.
 
-This is what the output should look like
+This is what the output should look 
+-----------------------------------
+| Child     | Father    | Mother  |
 -----------------------------------
 | Dimartino | Beane     | Hansard |
 | Hawbaker  | Blackston | Days    |
