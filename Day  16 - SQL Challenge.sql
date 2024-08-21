@@ -67,17 +67,23 @@ select * from relations;
 
 -- Method 1
 with father as (
-select c_id, p_id, p.name as Father
+select c_id,
+       p_id, 
+       p.name as Father
 from people p
 JOIN relations r
 on p.id = r.p_id and gender = 'M'
 ), mother as (
-select c_id, p_id, p.name as Mother
+select c_id, 
+       p_id, 
+       p.name as Mother
 from people p
 JOIN relations r
 on p.id = r.p_id and gender = 'F'
 )
-select p.name as Child,Father, Mother
+select p.name as Child,
+       Father,
+       Mother
 from father f
 join mother m on f.c_id = m.c_id
 join people p on p.id = m.c_id
