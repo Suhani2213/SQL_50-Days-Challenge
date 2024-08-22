@@ -45,7 +45,8 @@ values
     (618,747),
     (618,904);
 /*
-
+We have two  tables people and relations. 
+The people table contains the details of each individual and the relations table contain the parents - child relationship between two individuals.
 Write a query to print the name of a child and his parents in individual colummns  respectively on order of name of the child.
 
 This is what the output should look 
