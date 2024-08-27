@@ -11,6 +11,15 @@ insert into source values(1,'A'),(2,'B'),(3,'C'),(4,'D');
 insert into target values(1,'A'),(2,'B'),(4,'X'),(5,'F');
 
 
+/*
+output should look like this:
+----------------------
+|id  |comment        |
+|3	 |new in source	 |
+|4   |mismatch       |
+|5	 |new in target  |
+----------------------
+*/
 
 select * from source;
 select * from target;
