@@ -37,6 +37,9 @@ VALUES
 SELECT * FROM FAMILIES;
 SELECT * FROM COUNTRIES;
 
+
+
+
 -- Each tour offers a discount if a minimum number of people book at the same time
 -- Write a query to print the maximum number of  discounted tours any 1 family in the FAMILIES table can choose from
 
@@ -44,6 +47,9 @@ SELECT COUNT(1)
 FROM COUNTRIES
 where MIN_SIZE <= (SELECT max(FAMILY_SIZE) FROM FAMILIES);
 -- 'Alex Thomas' family can choose from any of the 5 tours and qulify for the discount
+
+
+
 
 
 
