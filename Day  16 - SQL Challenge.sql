@@ -45,13 +45,10 @@ values
     (618,747),
     (618,904);
 /*
-We have two  tables people and relations. 
-The people table contains the details of each individual and the relations table contain the parents - child relationship between two individuals.
+
 Write a query to print the name of a child and his parents in individual colummns  respectively on order of name of the child.
 
-This is what the output should look 
------------------------------------
-| Child     | Father    | Mother  |
+This is what the outpu should look like
 -----------------------------------
 | Dimartino | Beane     | Hansard |
 | Hawbaker  | Blackston | Days    |
@@ -70,23 +67,17 @@ select * from relations;
 
 -- Method 1
 with father as (
-select c_id,
-       p_id, 
-       p.name as Father
+select c_id, p_id, p.name as Father
 from people p
 JOIN relations r
 on p.id = r.p_id and gender = 'M'
 ), mother as (
-select c_id, 
-       p_id, 
-       p.name as Mother
+select c_id, p_id, p.name as Mother
 from people p
 JOIN relations r
 on p.id = r.p_id and gender = 'F'
 )
-select p.name as Child,
-       Father,
-       Mother
+select p.name as Child,Father, Mother
 from father f
 join mother m on f.c_id = m.c_id
 join people p on p.id = m.c_id
