@@ -11,12 +11,12 @@ values ('Sachin','Mumbai'),('Virat','Delhi') , ('Rahul','Bangalore'),('Rohit','M
 
 /*
 Desired output table should look like:
-------------------------------
-|Bangalore  |Mumbai   |Delhi |
-------------------------------
+----------------------------------
+|Bangalore  |Mumbai   |Delhi     |
+----------------------------------
 |Mayank	    |Rohit	  |Virat |
 |Rahul      |Sachin	  |null  |
-------------------------------
+----------------------------------
 */
 
 
