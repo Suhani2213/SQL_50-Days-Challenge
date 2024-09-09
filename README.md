@@ -2,7 +2,7 @@
 # SQL 30-Days Challenge 🚀
 
 
-Welcome to my SQL 30-Days Challenge! This repository is a personal journey to sharpen my SQL skills through daily challenges. It serves as a continuous practice log, showcasing commitment to mastering SQL and my ability to solve data-related problems effectively.
+Welcome to my SQL 50-Days Challenge! This repository is a personal journey to sharpen my SQL skills through daily challenges. It serves as a continuous practice log, showcasing commitment to mastering SQL and my ability to solve data-related problems effectively.
 
 
 ## 🌟 Purpose
