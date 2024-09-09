@@ -12,7 +12,7 @@ This repository is a reflection of dedication to skill enhancement and continuou
 
 ## 💼 What This Repository Demonstrates
 
-- ***Commitment to Learning***: A 30-day journey of continuous practice in SQL.
+- ***Commitment to Learning***: A 50-day journey of continuous practice in SQL.
 
 - ***Problem-Solving Skills***: Each challenge is a problem I've tackled, showcasing my approach to solving real-world SQL issues.
 
