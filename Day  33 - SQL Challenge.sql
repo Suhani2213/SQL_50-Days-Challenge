@@ -53,7 +53,7 @@ with rnk_order as(
 	from orders
 	)
 	select u.user_id as seller_id, -- s.*, u.favorite_brand,i.item_id, i.item_brand,
-		   case when u.favorite_brand = i.item_brand then "yes" else "no" end as 2nd_iten_fav_brand
+	       case when u.favorite_brand = i.item_brand then "yes" else "no" end as 2nd_iten_fav_brand
         from users u
 	left join rnk_order s on u.user_id = s.seller_id and rnk  = 2
 	left join items i on i.item_id  = s.item_id
