@@ -19,9 +19,9 @@ output:
 ---------------------------------------------------------------------
 |order_date | no_of_new_customer_count | no_of_repeat_customer_count |
 ---------------------------------------------------------------------
-|2022-01-01 |	3	                   | 0                       |
-|2022-01-02 |	2	                   | 1                       |
-|2022-01-03 |	1	                   | 2                       |
+|2022-01-01 |	3	                   | 0                           |
+|2022-01-02 |	2	                   | 1                           |
+|2022-01-03 |	1	                   | 2                           |
 ---------------------------------------------------------------------
 */
 
@@ -35,7 +35,7 @@ select * , row_number() over(partition by customer_id order by order_date) as rn
 from customer_orders
 )
 select order_date,
-       count(case when rnk = 1 then customer_id end) as no_of_new_customer_count,
+	   count(case when rnk = 1 then customer_id end) as no_of_new_customer_count,
        count(case when rnk > 1 then customer_id end) as no_of_repeat_customer_count
 from cte1
 group by order_date;
@@ -49,7 +49,7 @@ select * , row_number() over(partition by customer_id order by order_date) as rn
 from customer_orders
 )
 select order_date,
-       count(case when rnk = 1 then customer_id end) as no_of_new_customer,
+	   count(case when rnk = 1 then customer_id end) as no_of_new_customer,
        sum(case when rnk = 1 then order_amount end) as total_amount_of_new_customer,
        count(case when rnk > 1 then customer_id end) as no_of_repeat_customer,
        sum(case when rnk > 1 then order_amount end) as total_amount_of_repeat_customer
