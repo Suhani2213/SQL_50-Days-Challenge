@@ -20,7 +20,7 @@ Expected Output:
 |name | most_visit_floor| Total_visits | resources      |
 ---------------------------------------------------------
 |A    |	1               |3	           |CPU,DESKTOP     |
-|B	  |2	            |3	           |DESKTOP,MONITOR |
+|B	   |2	               |3	           |DESKTOP,MONITOR |
 ---------------------------------------------------------
 */
 
